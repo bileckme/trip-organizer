@@ -23,3 +23,13 @@ The list should be defined in a format that's compatible with the input format.
 The API is to be an internal PHP API so it will only communicate with other parts of a PHP application, not server to server, nor server to client. 
 
 Use PHP-doc to document the input and output your API accepts / returns.
+
+## Installation
+
+`composer install`
+
+`php src/Run.php`
+
+## Credits
+Name: Biyi Akinpelu
+Email: bileckme@gmail.com
