@@ -10,12 +10,15 @@
     "require": {
         "php": ">=5.4.0"
     },
+    "require-dev": {
+        "phpunit/phpunit": "4.4.1"
+    },
     "autoload": {
         "classmap": [
             "src/Trip/Organizer"
         ],
         "psr-4": {
-            "Trip\\Organizer": "src/"
+            "Trip\\Organizer\\": "src/"
         }
     },
     "minimum-stability": "stable"
