@@ -25,11 +25,23 @@ The API is to be an internal PHP API so it will only communicate with other part
 Use PHP-doc to document the input and output your API accepts / returns.
 
 ## Installation
+To install, follow the steps in commandline:
 
-`composer install`
+```
+git clone https://github.com/bileckme/trip-organizer.git
+cd trip-organizer
+composer install
+```
 
-`php src/Run.php`
+## Run
+To run, execute command:
+
+```
+php src/Run.php
+```
 
 ## Credits
+
 Name: Biyi Akinpelu
+
 Email: bileckme@gmail.com
