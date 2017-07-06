@@ -1,7 +1,6 @@
 <?php namespace Trip\Organizer;
 
-use Countable;
-use Iterator;
+use Trip\Organizer\Transport\Transport;
 
 /**
  * Class Card
@@ -9,22 +8,19 @@ use Iterator;
  */
 abstract class Card
 {
-    protected $departure;
-
     /**
-     * @var
+     * @var Transport
      */
-    protected $destination;
+    protected $transport;
 
     /**
      * Card constructor.
      * @param $departure
      * @param $destination
      */
-    public function __construct($departure, $destination)
+    public function __construct(Transport $transport)
     {
-        $this->departure = $departure;
-        $this->destination = $destination;
+        $this->transport = $transport;
     }
 
     /**
@@ -32,15 +28,7 @@ abstract class Card
      */
     public function getDeparture()
     {
-        return $this->departure;
-    }
-
-    /**
-     * @param mixed $departure
-     */
-    public function setDeparture($departure)
-    {
-        $this->departure = $departure;
+        return $this->transport->setDeparture();
     }
 
     /**
@@ -48,14 +36,6 @@ abstract class Card
      */
     public function getDestination()
     {
-        return $this->destination;
-    }
-
-    /**
-     * @param mixed $destination
-     */
-    public function setDestination($destination)
-    {
-        $this->destination = $destination;
+        return $this->transport->getDestination();
     }
 }

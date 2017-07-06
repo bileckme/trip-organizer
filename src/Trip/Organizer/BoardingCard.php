@@ -7,7 +7,7 @@ use Iterator;
  * Class BoardingCard
  * @package Trip\Organizer
  */
-class BoardingCard implements Countable, Iterator
+class BoardingCard extends Card implements Countable, Iterator
 {
     /**
      * @var Card[]
@@ -25,7 +25,7 @@ class BoardingCard implements Countable, Iterator
      * @internal param $departure
      * @internal param $destination
      */
-    public function __construct(Card $card = null)
+    public function __construct(Transport $card = null)
     {
         if (!is_null($card)){
             $this->addCard($card);
@@ -35,7 +35,7 @@ class BoardingCard implements Countable, Iterator
     /**
      * @param Card $card
      */
-    public function addCard(Card $card){
+    public function addCard(Transport $card){
         $this->cards[] = $card;
     }
 
@@ -43,7 +43,7 @@ class BoardingCard implements Countable, Iterator
      * Remove the card
      * @param Card $removeCard
      */
-    public function removeCard(Card $removeCard)
+    public function removeCard(Transport $removeCard)
     {
         foreach ($this->cards as $key => $card) {
             if ($card->getDeparture() === $removeCard->getDeparture() &&
