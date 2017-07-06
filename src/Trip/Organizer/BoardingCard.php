@@ -2,6 +2,7 @@
 
 use Countable;
 use Iterator;
+use Trip\Organizer\Transport\TransportInterface;
 
 /**
  * Class BoardingCard
@@ -35,7 +36,7 @@ class BoardingCard extends Card implements Countable, Iterator
     /**
      * @param Card $card
      */
-    public function addCard(Transport $card){
+    public function addCard(TransportInterface $card){
         $this->cards[] = $card;
     }
 

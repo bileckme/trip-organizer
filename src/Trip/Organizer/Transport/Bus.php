@@ -4,7 +4,7 @@
  * Class Bus
  * @package Orgainer
  */
-class Bus extends AbstractTransport
+class Bus extends Transport
 {
     const INSTRUCTION = 'Take the airport bus from %s to %s';
 

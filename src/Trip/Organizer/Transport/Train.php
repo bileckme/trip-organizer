@@ -4,7 +4,7 @@
  * Class Train
  * @package Trip\Organizer\Transport
  */
-class Train extends AbstractTransport
+class Train extends Transport
 {
     /**
      * @var integer

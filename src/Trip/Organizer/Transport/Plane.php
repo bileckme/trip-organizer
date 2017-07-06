@@ -4,8 +4,9 @@
  * Class Plane
  * @package Trip\Organizer\Transport
  */
-class Plane extends AbstractTransport
+class Plane extends Transport
 {
+    protected $baggage;
     protected $gate;
     protected $seat;
 
@@ -44,9 +45,35 @@ class Plane extends AbstractTransport
     }
 
     /**
+     * @return mixed
+     */
+    public function getBaggage()
+    {
+        return $this->baggage;
+    }
+
+    /**
+     * @param mixed $baggage
+     */
+    public function setBaggage($baggage)
+    {
+        $this->baggage = $baggage;
+    }
+
+    /**
+     * Gets the next instruction
+     *
+     * @param array $boardingCards
+     * @return mixed
+     */
+    public function nextInstruction(array $boardingCards = array())
+    {
+        return sprintf('Baggage drop at ticket counter %s' . "\n", $this->getBaggage());
+    }
+
+    /**
      * Gets instruction
      *
-     * @param string $message
      */
     public function getInstruction()
     {

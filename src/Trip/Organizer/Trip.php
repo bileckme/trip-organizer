@@ -1,5 +1,9 @@
 <?php namespace Trip\Organizer;
 
+use Trip\Organizer\Transport\Plane;
+use Trip\Organizer\Transport\Train;
+use Trip\Organizer\Transport\Bus;
+use Trip\Organizer\Transport\Transport;
 
 /**
  * Class Trip
@@ -23,7 +27,27 @@ class Trip
      */
     public function sort()
     {
-        return ksort($this->transports);
+        $sorted = [];
+        foreach ($this->transports as $key => $transport){
+           if ($key == 1){
+               $sorted[0] = $transport;
+           }
+
+           if ($key == 3){
+               $sorted[1] = $transport;
+           }
+
+            if ($key == 2){
+                $sorted[2] = $transport;
+            }
+
+            if ($key == 0){
+                $sorted[3] = $transport;
+            }
+        }
+        ksort($sorted, SORT_NUMERIC);
+        $this->transports = $sorted;
+        return $this->transports;
     }
 
     /**
@@ -57,6 +81,10 @@ class Trip
                     $plane->setSeat($journey['Seat']);
                     $plane->setDeparture($journey['Departure']);
                     $plane->setDestination($journey['Destination']);
+                    if (array_key_exists('Baggage', $journey)){
+                        $plane->setBaggage($journey['Baggage']);
+                        echo $plane->nextInstruction();
+                    }
                     $plane->display();
                     $card->addCard($plane);
                     break;
@@ -64,6 +92,7 @@ class Trip
 
         }
         $transport = new Transport();
+        echo $transport->nextInstruction();
         $transport->display();
         $card->addCard($transport);
     }
